@@ -16,7 +16,10 @@
               <div class="card-body">
                 <h5 class="card-title">{{ post.title }}</h5>
                 <p class="card-text">{{ post.blog_description }}</p>
-                <a href="#" class="btn btn-primary">Read More</a>
+                <!-- <a href="#" class="btn btn-primary">Read More</a> -->
+                <router-link :to="'/details/' + post.id" class="btn btn-primary">
+                Read More
+              </router-link>
               </div>
             </div>
           </div>
