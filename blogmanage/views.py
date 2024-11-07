@@ -2,7 +2,8 @@ from django.shortcuts import render
 from .models import BlogPost
 from rest_framework.views import APIView, Response
 from rest_framework.generics import (
-    ListAPIView, RetrieveAPIView, CreateAPIView
+    ListAPIView, RetrieveAPIView, CreateAPIView, UpdateAPIView,
+    DestroyAPIView
 )
 from rest_framework import status
 from .serializers import BlogPostSerializer
@@ -21,5 +22,9 @@ class BlogRetriveView(RetrieveAPIView):
 class BlogCreateView(CreateAPIView):
     # queryset = BlogPost.objects.all()
     serializer_class = BlogPostSerializer
-    
-    
+
+
+class BlogUpdateView(UpdateAPIView):
+    serializer_class = BlogPostSerializer
+    queryset = BlogPost.objects.all()
+    lookup_field = 'id'
