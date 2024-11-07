@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-7#bx8#cb_)lmoj!uz5$lgsuro_k9m#v242tq8dhc*r126pz1o7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blogmanage',
-    'rest_framework'
+    'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -49,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'CONFIG.urls'
@@ -70,6 +72,14 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'CONFIG.wsgi.application'
+
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:8080", 
+    "http://localhost:5173",
+]
+
+CORS_ALLOW_ALL_ORIGINS = True
 
 
 # settings.py
