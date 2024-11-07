@@ -28,3 +28,9 @@ class BlogUpdateView(UpdateAPIView):
     serializer_class = BlogPostSerializer
     queryset = BlogPost.objects.all()
     lookup_field = 'id'
+
+
+class DestroyView(DestroyAPIView):
+    serializer_class = BlogPostSerializer
+    queryset = BlogPost.objects.all()
+    lookup_field = 'id'
