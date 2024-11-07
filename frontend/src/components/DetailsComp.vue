@@ -18,7 +18,10 @@ import NavigationBar from '@/components/NavigationBar.vue';
           <div v-html="post.blog_description"></div>
         </div>
         <div class="card-footer">
-          <button class="btn btn-secondary" @click="goBack">Back to Blog</button>
+            <router-link :to="'/'" class="btn btn-secondary">
+                Back to Blog
+                </router-link>
+          <!-- <button class="btn btn-secondary" @click="goBack">Back to Blog</button> -->
         </div>
       </div>
     </div>
