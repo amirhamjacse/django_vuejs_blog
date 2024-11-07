@@ -1,0 +1,56 @@
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.so
+*.dylib
+*.egg
+*.egg-info/
+dist/
+build/
+*.whl
+*.zip
+*.tar.gz
+
+# Django
+*.log
+*.pot
+*.pyc
+*.db
+*.sqlite3
+*.sqlite3-journal
+media/
+static/
+
+# Virtual Environment
+venv/
+env/
+.venv/
+ENV/
+*.env
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Python Coveralls or coverage
+.coverage
+.coverage.*
+
+# pytest
+.cache/
+nosetests.xml
+coverage.xml
+*.cover
+
+# mypy
+.mypy_cache/
+.dmypy.json
+.pyre/
