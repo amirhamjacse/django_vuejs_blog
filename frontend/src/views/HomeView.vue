@@ -1,26 +1,29 @@
 <template>
-  <div class="container">
-    <h1 class="mt-5">Blog Data</h1>
+  <div class="container mt-5">
+    <!-- <h1 class="text-center">Blog Posts</h1> -->
 
-    <table class="table table-bordered table-striped mt-4">
-      <thead>
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Title</th>
-          <th scope="col">Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Loop through blog_data -->
-        <tr v-for="(data, index) in blog_data" :key="index">
-          <td v-for="(specific, index2) in data" :key="index2">
-            <!-- <p><strong>{{ specific.id }}</strong></p> -->
-            <p><strong>{{ specific.title }}</strong></p>
-            <p>{{ specific.blog_description }}</p>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <!-- Outer loop: Loop through each category in blog_data -->
+    <div class="row">
+      <div v-for="(category, categoryIndex) in blog_data" :key="categoryIndex" class="col-md-12">
+        
+        <!-- Category Header (optional) -->
+        <!-- <h3>Category {{ categoryIndex + 1 }}</h3> -->
+        
+        <!-- Inner loop: Loop through each post within this category -->
+        <div class="row">
+          <div v-for="(post, postIndex) in category" :key="post.id" class="col-md-12 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">{{ post.title }}</h5>
+                <p class="card-text">{{ post.blog_description }}</p>
+                <a href="#" class="btn btn-primary">Read More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
   </div>
 </template>
 
