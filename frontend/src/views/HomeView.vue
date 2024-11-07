@@ -1,8 +1,16 @@
+<script setup>
+import NavigationBar from '@/components/NavigationBar.vue';
+</script>
 <template>
-  <div class="container mt-5">
-    <!-- <h1 class="text-center">Blog Posts</h1> -->
+  <NavigationBar></NavigationBar>
+  <div class="container my-5">
+    <!-- Blog Title -->
+    <div class="text-center mb-4">
+      <h1>Welcome to My Blog</h1>
+      <p class="lead">Latest Posts and Updates</p>
+    </div>
 
-    <!-- Outer loop: Loop through each category in blog_data -->
+    <!-- Blog Post List -->
     <div class="row">
       <div v-for="(category, categoryIndex) in blog_data" :key="categoryIndex" class="col-md-12">
         
@@ -27,9 +35,28 @@
         
       </div>
     </div>
+
+    <!-- Pagination (if needed) -->
+    <nav aria-label="Page navigation">
+      <ul class="pagination justify-content-center">
+        <li class="page-item" :class="{ disabled: currentPage === 1 }">
+          <a class="page-link" href="#" @click="changePage(currentPage - 1)">Previous</a>
+        </li>
+        <li
+          v-for="page in totalPages"
+          :key="page"
+          class="page-item" 
+          :class="{ active: currentPage === page }"
+        >
+          <a class="page-link" href="#" @click="changePage(page)">{{ page }}</a>
+        </li>
+        <li class="page-item" :class="{ disabled: currentPage === totalPages }">
+          <a class="page-link" href="#" @click="changePage(currentPage + 1)">Next</a>
+        </li>
+      </ul>
+    </nav>
   </div>
 </template>
-
 
   <script>
   import axios from 'axios';

@@ -1,17 +1,28 @@
-<template>
-    <div>
-        <h1>Details</h1>
-        <p>Description {{ id }}</p>
-        <p>
-            {{ datas }}
-        </p>
-        {{datas.title}}
-        <br>
-        {{datas.blog_description}}
-
-            
+<script setup>
+import NavigationBar from '@/components/NavigationBar.vue';
+</script>
+    <template>
+    <NavigationBar></NavigationBar>
+    <div class="container my-5">
+      <!-- Blog Post Detail -->
+      <div v-if="post" class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+          <h2>{{ post.title }}</h2>
+        </div>
+        <div class="card-body">
+          <p class="text-muted">
+            <strong>Published on:</strong> {{ post.date }} |
+            <strong>Author:</strong> Hamja {{ post.author }}
+          </p>
+          <hr>
+          <div v-html="post.blog_description"></div>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-secondary" @click="goBack">Back to Blog</button>
+        </div>
+      </div>
     </div>
-</template>
+  </template>
 
 <script>
 import axios from 'axios';
@@ -21,7 +32,7 @@ export default{
     data(){
         return{
             description: '',
-            datas: "",
+            post: "",
             // id: this.id
         }
     },
@@ -32,7 +43,7 @@ export default{
         async detailsBlog(){
         // console.log(this.id, 'working')
         const response = await axios.get(`${apiUrl}blog/details/${this.id}/`);
-        this.datas = response.data;
+        this.post = response.data;
         // console.log(response);
 
         }
