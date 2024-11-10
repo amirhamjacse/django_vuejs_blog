@@ -42,7 +42,7 @@ import FooterDesign from '@/components/FooterDesign.vue';
                 <!-- <p class="card-text">{{ post.blog_description }}</p> -->
                 <!-- <p class="card-text">{{ getExcerpt(post.blog_description, 6) }}</p> -->
                 <!-- <a href="#" class="btn btn-primary">Read More</a> -->
-                <router-link :to="'/details/' + post.id" class="btn btn-primary">
+                <router-link :to="'/details/' + post.id" class="btn btn-primary ">
                 Read More
                 </router-link>
               <!-- </div> -->
