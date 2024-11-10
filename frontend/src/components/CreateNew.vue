@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import axios from 'axios';
 import { useRouter } from 'vue-router'; // Import useRouter from Vue Router
 import NavigationBar from '@/components/NavigationBar.vue';
+import FooterDesign from '@/components/FooterDesign.vue';
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
@@ -85,6 +86,7 @@ const createPost = async () => {
       <button class="btn btn-primary" @click="createPost">Create Post</button>
     </div>
   </div>
+  <FooterDesign></FooterDesign>
 </template>
 
 <style scoped>
