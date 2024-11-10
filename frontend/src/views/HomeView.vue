@@ -91,7 +91,7 @@ export default{
     // },
     methods: {
       async getBlogdata(){
-        const response = await axios.get(`${apiUrl}/blog/list/`)
+        const response = await axios.get(`${apiUrl}blog/list/`)
         // const response = axios.get(`http://127.0.0.1:8000/blog/list/`)
         this.blog_data = response.data;
         console.log(response.data);

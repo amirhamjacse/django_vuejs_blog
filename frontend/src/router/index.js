@@ -25,6 +25,11 @@ const router = createRouter({
       component: () => import('../components/DetailsComp.vue'),
       props:true
     },
+    {
+      path: '/new-post',
+      name: 'createblog',
+      component: () => import('../components/CreateNew.vue')
+    },
   ],
 })
 
