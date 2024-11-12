@@ -17,7 +17,7 @@ import FooterDesign from '@/components/FooterDesign.vue';
         <div class="row">            
           <div v-if="post" class="card">
             <div class="card-body">
-              <h5 class="card-title">Title: {{ post.title }}</h5>
+              <h5 class="card-title"> {{ post.title }}</h5>
               <img class="p-2" src="https://i.ibb.co/cyy9gTH/blog-camtasia-youtube-thumbnails-1500x1100.png" width="350px;">
               <router-link :to="'/details/' + post.id" class="btn btn-primary mt-2">Read More</router-link>
             </div>
