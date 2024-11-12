@@ -251,13 +251,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Axios for making HTTP requests.
 ```
 
----
-
-### Key Points:
-- The markdown is structured to provide installation instructions, setup guides for both frontend and backend, and how to use the API.
-- You can copy and paste this `README.md` directly into your repository.
-- All code blocks (bash commands, JavaScript, JSON, etc.) are now formatted properly within markdown code blocks.
-
 
 ### Project Structure:
 

@@ -8,7 +8,7 @@ import FooterDesign from '@/components/FooterDesign.vue';
       <!-- Blog Post Detail -->
       <div v-if="post" class="card shadow-sm">
         <div class="card-header bg-primary text-white">
-          <h2 class="justify-content-center">{{ post.title }}</h2>
+          <h2 class="justify-content-center">{{ post.title }} Edit/ Delete</h2>
         </div>
         <div class="card-body">
           <p class="text-muted">
