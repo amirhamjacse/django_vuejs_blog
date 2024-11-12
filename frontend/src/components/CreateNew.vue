@@ -38,54 +38,63 @@ const createPost = async () => {
 
 <template>
   <NavigationBar />
-  <div class="container">
-    <h1>Create Blog Post</h1>
-    
-    <div class="form-group">
-      <div class="row">
-        <!-- Title input -->
-        <div class="col-md-6">
-          <label for="title">Title</label>
-          <input
-            type="text"
-            class="form-control"
-            id="title"
-            v-model="title"
-            placeholder="Enter the blog title"
-            required
-          />
-        </div>
 
-        <!-- Description input -->
-        <div class="col-md-6">
-          <label for="blogDescription">Blog Description</label>
-          <textarea
-            class="form-control"
-            id="blogDescription"
-            v-model="blogDescription"
-            placeholder="Enter the blog description"
-            rows="5"
-            required
-          ></textarea>
+  <div class="container mt-5">
+    <!-- Card for form -->
+    <div class="card shadow-lg p-4">
+      <div class="card-body">
+        <h1 class="card-title text-center mb-4">Create Blog Post</h1>
+
+        <!-- Form -->
+        <div class="form-group">
+          <div class="row mb-3">
+            <!-- Title input -->
+            <div class="col-md-12">
+              <label for="title" class="form-label">Title</label>
+              <input
+                type="text"
+                class="form-control"
+                id="title"
+                v-model="title"
+                placeholder="Enter the blog title"
+                required
+              />
+            </div>
+
+            <!-- Description input -->
+            <div class="col-md-12">
+              <label for="blogDescription" class="form-label">Blog Description</label>
+              <textarea
+                class="form-control"
+                id="blogDescription"
+                v-model="blogDescription"
+                placeholder="Enter the blog description"
+                rows="5"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <!-- Is Active input -->
+          <div class="form-check mb-4">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="isActive"
+              v-model="isActive"
+            />
+            <label class="form-check-label" for="isActive">Is Active?</label>
+          </div>
+
+          <!-- Submit button -->
+          <div class="d-grid gap-2">
+            <button class="btn btn-primary" @click="createPost">Create Post</button>
+          </div>
         </div>
       </div>
-
-      <!-- Is Active input -->
-      <div class="form-check">
-        <input
-          type="checkbox"
-          class="form-check-input"
-          id="isActive"
-          v-model="isActive"
-        />
-        <label class="form-check-label" for="isActive">Is Active?</label>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <button class="btn btn-primary" @click="createPost">Create Post</button>
     </div>
   </div>
+  
   <FooterDesign></FooterDesign>
 </template>
 

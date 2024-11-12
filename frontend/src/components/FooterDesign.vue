@@ -8,7 +8,7 @@
           <div class="col-md-4">
             <h5>About Us</h5>
             <p>
-              Welcome to Demo-Blog! Stay up-to-date with the latest blog posts, articles, and insights in the world of sustainability, technology, and more.
+              Welcome to Hamja Blog! Stay up-to-date with the latest blog posts, articles, and insights in the world of sustainability, technology, and more.
             </p>
           </div>
   
@@ -40,7 +40,7 @@
         <!-- Footer Bottom Section -->
         <div class="row mt-4">
           <div class="col text-center">
-            <p class="mb-0">&copy; 2024 Demo-Blog. All Rights Reserved.</p>
+            <p class="mb-0">&copy; 2024 Hamja Blog. All Rights Reserved.</p>
           </div>
         </div>
       </div>
