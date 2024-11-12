@@ -257,3 +257,42 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - The markdown is structured to provide installation instructions, setup guides for both frontend and backend, and how to use the API.
 - You can copy and paste this `README.md` directly into your repository.
 - All code blocks (bash commands, JavaScript, JSON, etc.) are now formatted properly within markdown code blocks.
+
+
+### Project Structure:
+
+.
+├── project
+│   ├── admin.py
+│   ├── apps.py
+│   ├── __init__.py
+│   ├── migrations
+│   ├── models.py
+│   ├── __pycache__
+│   ├── serializers.py
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+├── CONFIG
+│   ├── asgi.py
+│   ├── __init__.py
+│   ├── __pycache__
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+├── db.sqlite3
+├── frontend
+│   ├── eslint.config.js
+│   ├── index.html
+│   ├── jsconfig.json
+│   ├── node_modules
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── public
+│   ├── README.md
+│   ├── src
+│   └── vite.config.js
+├── LICENSE
+├── manage.py
+├── README.md
+└── requirements.txt
