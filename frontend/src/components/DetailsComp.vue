@@ -11,7 +11,18 @@ const router = useRouter();
   <NavigationBar></NavigationBar>
   <div class="container my-5">
     <!-- Blog Post Detail -->
-    <div v-if="post" class="card shadow-sm">
+    <div v-if="loading" class="card shadow-sm">
+      <div class="card-header bg-primary text-white">
+        <div class="skeleton-title mb-3"></div>
+      </div>
+      <div class="card-body">
+        <div class="skeleton-text mb-3"></div>
+        <div class="skeleton-text mb-3"></div>
+        <div class="skeleton-btn mb-3"></div>
+      </div>
+    </div>
+
+    <div v-else v-if="post" class="card shadow-sm">
       <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
         <h2 class="mb-0">{{ isEditing ? 'Edit Post' : post.title }}</h2>
         <div>
@@ -67,12 +78,13 @@ export default {
   props: ['id'],
   data() {
     return {
-      post: "",
+      post: null, // Initially null until data is loaded
       editablePost: {
         title: "",
         blog_description: ""
       },
       isEditing: false,
+      loading: true // To track if data is being loaded
     };
   },
   mounted() {
@@ -80,9 +92,16 @@ export default {
   },
   methods: {
     async detailsBlog() {
-      const response = await axios.get(`${apiUrl}blog/details/${this.id}/`);
-      this.post = response.data;
-      this.setEditableFields();
+      try {
+        const response = await axios.get(`${apiUrl}blog/details/${this.id}/`);
+        this.post = response.data;
+        this.setEditableFields();
+      } catch (error) {
+        console.error("Failed to load post:", error);
+        alert("An error occurred while loading the post.");
+      } finally {
+        this.loading = false; // Data is loaded, turn off loading state
+      }
     },
     setEditableFields() {
       this.editablePost.title = this.post.title;
@@ -123,3 +142,26 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+/* Skeleton loader styles */
+.skeleton-title {
+  width: 70%;
+  height: 25px;
+  background-color: #ddd;
+  margin-bottom: 15px;
+}
+
+.skeleton-text {
+  width: 100%;
+  height: 15px;
+  background-color: #ddd;
+  margin-bottom: 10px;
+}
+
+.skeleton-btn {
+  width: 50%;
+  height: 40px;
+  background-color: #ddd;
+}
+</style>

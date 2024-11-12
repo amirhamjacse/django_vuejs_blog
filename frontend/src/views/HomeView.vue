@@ -13,14 +13,24 @@ import FooterDesign from '@/components/FooterDesign.vue';
 
     <!-- Blog Post List -->
     <div class="row">
-      <div v-for="(post, index) in paginatedPosts" :key="index" class="col-md-4 p-4">
-        <div class="row">            
-          <div v-if="post" class="card">
-            <div class="card-body">
-              <h5 class="card-title"> {{ post.title }}</h5>
-              <img class="p-2" src="https://i.ibb.co/cyy9gTH/blog-camtasia-youtube-thumbnails-1500x1100.png" width="350px;">
-              <router-link :to="'/details/' + post.id" class="btn btn-primary mt-2">Read More</router-link>
-            </div>
+      <!-- Show loading skeletons while loading data -->
+      <div v-if="loading" class="col-md-4 p-4" v-for="n in itemsPerPage" :key="'loading-' + n">
+        <div class="card">
+          <div class="card-body">
+            <div class="skeleton-title mb-3"></div>
+            <div class="skeleton-image mb-3" style="width: 100%; height: 200px; background-color: #ccc;"></div>
+            <div class="skeleton-btn" style="width: 80%; height: 40px; background-color: #ccc;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Show actual posts when data is available -->
+      <div v-else v-for="(post, index) in paginatedPosts" :key="index" class="col-md-4 p-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{ post.title }}</h5>
+            <img class="p-2" src="https://i.ibb.co/cyy9gTH/blog-camtasia-youtube-thumbnails-1500x1100.png" width="350px;">
+            <router-link :to="'/details/' + post.id" class="btn btn-primary mt-2">Read More</router-link>
           </div>
         </div>
       </div>
@@ -54,7 +64,8 @@ export default {
       blog_data: { results: [] },
       currentPage: 1,
       itemsPerPage: 6,
-      totalPages: 1
+      totalPages: 1,
+      loading: true // To track if data is being loaded
     };
   },
   mounted() {
@@ -65,6 +76,7 @@ export default {
       const response = await axios.get(`${apiUrl}blog/list/`);
       this.blog_data = response.data;
       this.totalPages = Math.ceil(this.blog_data.results.length / this.itemsPerPage);
+      this.loading = false; // Data is loaded, turn off loading state
     },
     changePage(page) {
       if (page >= 1 && page <= this.totalPages) {
@@ -81,3 +93,24 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.skeleton-title {
+  width: 70%;
+  height: 20px;
+  background-color: #ddd;
+  margin-bottom: 15px;
+}
+
+.skeleton-image {
+  width: 100%;
+  height: 150px;
+  background-color: #ddd;
+}
+
+.skeleton-btn {
+  width: 60%;
+  height: 30px;
+  background-color: #ddd;
+}
+</style>
