@@ -10,7 +10,7 @@ from .serializers import BlogPostSerializer
 
 
 class BlogList(ListAPIView):
-    queryset = BlogPost.objects.all()
+    queryset = BlogPost.objects.all().order_by('-pk')
     serializer_class = BlogPostSerializer
 
 

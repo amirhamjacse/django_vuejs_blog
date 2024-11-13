@@ -22,7 +22,7 @@ const router = useRouter();
       </div>
     </div>
 
-    <div v-else v-if="post" class="card shadow-sm">
+    <article v-else v-if="post" class="card shadow-sm">
       <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
         <h2 class="mb-0">{{ isEditing ? 'Edit Post' : post.title }}</h2>
         <div>
@@ -65,10 +65,11 @@ const router = useRouter();
       <div class="card-footer">
         <router-link :to="'/'" class="btn btn-secondary">Back to Blog</router-link>
       </div>
-    </div>
+    </article>
   </div>
   <FooterDesign></FooterDesign>
 </template>
+
 
 <script>
 import axios from 'axios';
