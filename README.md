@@ -249,6 +249,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Django/Flask for the backend.
 - Bootstrap for the responsive layout.
 - Axios for making HTTP requests.
+
+## Screenshoot
+
+![Alt text](/screenshoot/1.png)
+![Alt text](/screenshoot/3.png)
+![Alt text](/screenshoot/2.png)/
+![Alt text](/screenshoot/4.png)
+
 ```
 
 
@@ -289,3 +297,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ├── manage.py
 ├── README.md
 └── requirements.txt
+

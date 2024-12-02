@@ -18,7 +18,7 @@ const router = useRouter();
 // Form submission method
 const createPost = async () => {
   try {
-    const response = await axios.post(`${apiUrl}blog/create/`, {
+    const response = await axios.post(`${apiUrl}blog/create/1/`, {
       title: title.value,
       blog_description: blogDescription.value,
       is_active: isActive.value,

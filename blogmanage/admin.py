@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import BlogPost
+from .models import BlogPost, BlogCategory
 
 @admin.register(BlogPost)
 class BlogPostAdmin(admin.ModelAdmin):
@@ -8,4 +8,12 @@ class BlogPostAdmin(admin.ModelAdmin):
             'blog_description',
             'is_active',
             'date',
+        ]
+
+
+@admin.register(BlogCategory)
+class BlogPostAdmin(admin.ModelAdmin):
+    list_display = [
+        'name',
+        'description',
         ]
